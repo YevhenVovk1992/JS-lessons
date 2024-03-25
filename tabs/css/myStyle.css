@@ -1,0 +1,11 @@
+.hideTab {
+    display: none;
+}
+
+.fade {
+    animation: fade 3s ;
+}
+
+@keyframes fade {
+    from {opacity: 0,1;}to{opacity: 100;}
+}
