@@ -147,4 +147,69 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
     window.addEventListener('scroll', scrollHendler);
+
+
+    // class
+
+    class MenuElement {
+        constructor(src, alt, subtitle, desription, price, parent_selector) {
+            this.src = src;
+            this.alt = alt;
+            this.subtitle = subtitle;
+            this.desription = desription;
+            this.price = price;
+            this.item_container = document.querySelector(parent_selector);
+        }
+
+        render() {
+            let item = document.createElement('div');
+
+            item.innerHTML = `
+                <div class="menu__item">
+                    <img src=${this.src} alt=${this.alt}>
+                    <h3 class="menu__item-subtitle">${this.subtitle}</h3>
+                    <div class="menu__item-descr">${this.desription}</div>
+                    <div class="menu__item-divider"></div>
+                    <div class="menu__item-price">
+                        <div class="menu__item-cost">Цена:</div>
+                        <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+                        </div>
+                </div>`;
+            this.item_container.append(item);
+        }
+    }
+
+    const menuCard1 = new MenuElement(
+        "img/tabs/vegy.jpg", 
+        "vegy", 
+        'Меню "Фитнес"', 
+        `Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. 
+        Это абсолютно новый продукт с оптимальной ценой и высоким качеством!`, 
+        229,
+        '.menu .container'
+        ),
+        
+        menuCard2 = new MenuElement(
+            "img/tabs/post.jpg",
+            "post",
+            'Меню "Постное"',
+            `Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, 
+            молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков. `,
+            430,
+            '.menu .container'
+        ),
+
+        menuCard3 = new MenuElement(
+            "img/tabs/post.jpg",
+            "post",
+            'Меню "Постное"',
+            `Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, 
+            молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков. `,
+            430,
+            '.menu .container'
+        );
+
+    menuCard1.render();
+    menuCard2.render();
+    menuCard3.render();
 });
